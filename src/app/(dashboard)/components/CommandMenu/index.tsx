@@ -160,6 +160,7 @@ export function CommandMenu({ className }: { className?: string }) {
                   ))}
                   <CommandPrimitive.Input
                     className={"flex-1 text-lg focus:outline-none"}
+                    autoFocus
                     placeholder={
                       locations?.length
                         ? "Add more locations..."
@@ -167,6 +168,22 @@ export function CommandMenu({ className }: { className?: string }) {
                     }
                     value={value}
                     onValueChange={setValue}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setValue("", false);
+                      }
+                      if (e.key === "Backspace") {
+                        if (value === "") {
+                          setLocations((prevLocations) => {
+                            return prevLocations
+                              ? prevLocations.slice(0, -1)
+                              : [];
+                          });
+                        }
+                      }
+                    }}
                   />
                 </div>
               </div>
