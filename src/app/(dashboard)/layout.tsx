@@ -6,6 +6,7 @@ import { ProfileDropdown } from "./components/profile-dropdown";
 import { Separator } from "@/components/ui/separator";
 import { CommandMenu } from "./components/CommandMenu";
 import PurposeSelector from "./components/PurposeSelector";
+import { Sidebar } from "./components/Sidebar";
 export default function DashboardLayout({ children }: PropsWithChildren) {
   return (
     <>
@@ -16,7 +17,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
         <Separator orientation="vertical" className="ml-8 h-20" />
         <PurposeSelector className="ml-6" />
         <Separator orientation="vertical" className="ml-6 h-20" />
-        <div className="flex items-center flex-1">
+        <div className="flex flex-1 items-center">
           <CommandMenu className="ml-8 flex-1" />
         </div>
 
@@ -33,7 +34,12 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
           <ProfileDropdown />
         </div>
       </header>
-      {children}
+      <main>
+        <aside className="w-64 min-h-[calc(100vh-81px)] border-r">
+          <Sidebar />
+        </aside>
+        <div>{children}</div>
+      </main>
     </>
   );
 }
