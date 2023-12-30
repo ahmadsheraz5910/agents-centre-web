@@ -1,6 +1,12 @@
 "use client";
 import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  BackpackIcon,
+  CornerDownLeft,
+  MousePointer,
   SearchIcon,
+  TextCursorIcon,
   XIcon,
 } from "lucide-react";
 import { Command as CommandPrimitive } from "cmdk";
@@ -230,7 +236,33 @@ export function CommandMenu({ className }: { className?: string }) {
                   </CommandGroup>
                 )}
               </CommandList>
-              <div className="h-16">{/* Todo Add Command Shortcuts */}</div>
+              <div className="h-16">
+                <div className="flex items-center justify-between px-4 py-3">
+                  <div className="bg-slate-100 text-slate-500 rounded-md p-2">
+                    <MousePointer className="w-4 h-4" />
+                  </div>
+                  <p>{"or"}</p>
+                  <div className="bg-slate-100 text-slate-500 rounded-md p-2">
+                    <ArrowUpIcon className="w-4 h-4" />
+                  </div>
+                  <div className="bg-slate-100 text-slate-500 rounded-md p-2">
+                    <ArrowDownIcon className="w-4 h-4" />
+                  </div>
+                  <p>{"to navigate, "}</p>
+                  <div className="bg-slate-100 text-slate-500 rounded-md p-2">
+                    <CornerDownLeft className="w-4 h-4" />
+                  </div>
+                  <p>{"to select, and"}</p>
+                  <div className="bg-slate-100 rounded-md font-semibold flex items-center text-center px-3 py-1 text-slate-500">
+                    <p>{"Ctrl"}</p>
+                  </div>
+                  <p>{"+"}</p>
+                  <div className="bg-slate-100 rounded-md font-semibold flex items-center text-center px-3 py-1 text-slate-500">
+                    <p>{"K"}</p>
+                  </div>
+                  <p>{"to search anytime"}</p>
+                </div>
+              </div>
             </Command>
           }
         </PopoverPrimitive.Content>
