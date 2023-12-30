@@ -2,11 +2,9 @@
 import {
   ArrowDownIcon,
   ArrowUpIcon,
-  BackpackIcon,
   CornerDownLeft,
   MousePointer,
   SearchIcon,
-  TextCursorIcon,
   XIcon,
 } from "lucide-react";
 import { Command as CommandPrimitive } from "cmdk";
