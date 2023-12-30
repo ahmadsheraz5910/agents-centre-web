@@ -3,24 +3,33 @@ import React from "react";
 import Image from "next/image";
 interface Props {
   className?: string;
-  foreground?:boolean
+  foreground?: boolean;
+  iconOnly?: boolean;
 }
-const BrandLogo = ({ className, foreground = false }: Props) => {
+const BrandLogo = ({
+  className,
+  iconOnly = false,
+  foreground = false,
+}: Props) => {
+  if (iconOnly) {
+    return (
+      <Image
+        src="/logo-xs.png"
+        alt="Logo"
+        width={88}
+        height={80}
+        className={className}
+      />
+    );
+  }
   return (
     <Image
-      src={`/${foreground ? 'logo.png':'logo-2.png'}`}
+      src={`/${foreground ? "logo.png" : "logo-2.png"}`}
       alt="Logo"
       width={480}
       height={120}
       className={className}
     />
-    // <Image
-    //   src="/logo-xs.png"
-    //   alt="Logo"
-    //   width={132}
-    //   height={120}
-    //   className={className}
-    // />
   );
 };
 
