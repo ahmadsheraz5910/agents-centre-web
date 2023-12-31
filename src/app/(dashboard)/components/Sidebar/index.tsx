@@ -5,49 +5,97 @@ import {
   HeartIcon,
   KanbanIcon,
   MessageSquareIcon,
+  PlusCircleIcon,
+  PlusIcon,
+  SettingsIcon,
   UsersRoundIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-const Links = [
-  {
-    name: "Overview",
-    icon: <KanbanIcon className="mr-4 h-5 w-5" />,
-    href: "/",
-  },
+import AgencySwitcher from "./AgencySwitcher";
+const ExploreLinks = [
   {
     name: "Properties",
+    icon: (
+      <Image
+        width={20}
+        height={20}
+        alt={"Explore Properties"}
+        src={"/svgs/telescope.svg"}
+        className="mr-4"
+      />
+    ),
+    href: "/your-properties",
+  },
+  {
+    name: "Agencies",
+    icon: <Building2Icon className="mr-4 h-5 w-5" />,
+    href: "/messages",
+  },
+  {
+    name: "Agents",
+    icon: <UsersRoundIcon className="mr-4 h-5 w-5" />,
+    href: "/agency-settings",
+  },
+];
+const AgencyLinks = [
+  {
+    name: "Manage Properties",
     icon: <Building2Icon className="mr-4 h-5 w-5" />,
     href: "/your-properties",
   },
   {
-    name: "Favorites",
-    icon: <HeartIcon className="mr-4 h-5 w-5" />,
+    name: "Members",
+    icon: <UsersRoundIcon className="mr-4 h-5 w-5" />,
     href: "/favorites",
   },
   {
-    name: "Agency",
-    icon: <UsersRoundIcon className="mr-4 h-5 w-5" />,
-    href: "/agency-settings",
+    name: "Settings",
+    icon: <SettingsIcon className="mr-4 h-5 w-5" />,
+    href: "/",
+  },
+];
+const PersonalLinks = [
+  {
+    name: "Dashboard",
+    icon: <KanbanIcon className="mr-4 h-5 w-5" />,
+    href: "/",
   },
   {
     name: "Messages",
     icon: <MessageSquareIcon className="mr-4 h-5 w-5" />,
     href: "/messages",
   },
+  {
+    name: "Your Properties",
+    icon: <Building2Icon className="mr-4 h-5 w-5" />,
+    href: "/your-properties",
+  },
+  {
+    name: "Your Favorites",
+    icon: <HeartIcon className="mr-4 h-5 w-5" />,
+    href: "/favorites",
+  },
 ];
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("pb-12", className)}>
-      <div className="space-y-4 py-4">
-        <div className="px-3 py-2">
+    <div className={cn("", className)}>
+      <div className="space-y-4">
+        <div className="border-b px-3 py-4">
+          <AgencySwitcher className="w-full" />
+        </div>
+        <div className="border-b px-3 py-2">
+          <p className="mb-2 text-xs font-semibold text-muted-foreground">
+            {"EXPLORE"}
+          </p>
           <div className="space-y-1">
-            {Links.map((link) => (
-              <Button
-                key={link.name}
-                variant="ghost"
-                className="w-full"
-              >
-                <Link href={link.href} passHref className="w-full flex items-center">
+            {ExploreLinks.map((link) => (
+              <Button key={link.name} variant="ghost" className="w-full">
+                <Link
+                  href={link.href}
+                  passHref
+                  className="flex w-full items-center"
+                >
                   {link.icon}
                   {link.name}
                 </Link>
@@ -55,6 +103,55 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
             ))}
           </div>
         </div>
+        <div className="px-3 py-2">
+          <p className="mb-2 text-xs font-semibold text-muted-foreground">
+            {"PERSONAL"}
+          </p>
+          <div className="space-y-1">
+            {PersonalLinks.map((link) => (
+              <Button
+                key={link.name}
+                variant="ghost"
+                className="w-full text-slate-800"
+              >
+                <Link
+                  href={link.href}
+                  passHref
+                  className="flex w-full items-center"
+                >
+                  {link.icon}
+                  {link.name}
+                </Link>
+              </Button>
+            ))}
+          </div>
+          <Button
+            className="my-2 flex w-full items-center justify-center gap-2 font-medium"
+            variant={"secondary"}
+          >
+            <PlusIcon className="h-5 w-5" />
+            <p className="mr-2">{"Add a Property"}</p>
+          </Button>
+        </div>
+        {/* <div className="px-3 py-2">
+          <p className="mb-2 text-xs font-semibold text-muted-foreground uppercase">
+            {"Agents Centre"}
+          </p>
+          <div className="space-y-1">
+            {AgencyLinks.map((link) => (
+              <Button key={link.name} variant="ghost" className="w-full">
+                <Link
+                  href={link.href}
+                  passHref
+                  className="flex w-full items-center"
+                >
+                  {link.icon}
+                  {link.name}
+                </Link>
+              </Button>
+            ))}
+          </div>
+        </div> */}
       </div>
     </div>
   );

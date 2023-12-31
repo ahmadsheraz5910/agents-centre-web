@@ -34,8 +34,8 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
           <ProfileDropdown />
         </div>
       </header>
-      <main>
-        <aside className="w-64 min-h-[calc(100vh-81px)] border-r">
+      <main className="flex">
+        <aside className="w-64 overflow-auto max-h-[calc(100vh-81px)] border-r">
           <Sidebar />
         </aside>
         <div>{children}</div>
