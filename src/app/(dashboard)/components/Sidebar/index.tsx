@@ -5,14 +5,15 @@ import {
   HeartIcon,
   KanbanIcon,
   MessageSquareIcon,
-  PlusCircleIcon,
   PlusIcon,
-  SettingsIcon,
   UsersRoundIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AgencySwitcher from "./AgencySwitcher";
+import { type Session } from "next-auth";
+
+
 const ExploreLinks = [
   {
     name: "Properties",
@@ -38,23 +39,6 @@ const ExploreLinks = [
     href: "/agency-settings",
   },
 ];
-const AgencyLinks = [
-  {
-    name: "Manage Properties",
-    icon: <Building2Icon className="mr-4 h-5 w-5" />,
-    href: "/your-properties",
-  },
-  {
-    name: "Members",
-    icon: <UsersRoundIcon className="mr-4 h-5 w-5" />,
-    href: "/favorites",
-  },
-  {
-    name: "Settings",
-    icon: <SettingsIcon className="mr-4 h-5 w-5" />,
-    href: "/",
-  },
-];
 const PersonalLinks = [
   {
     name: "Dashboard",
@@ -77,12 +61,17 @@ const PersonalLinks = [
     href: "/favorites",
   },
 ];
-export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
+
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  userSession:Session
+}
+export function Sidebar({ className,userSession }: Props) {
+  
   return (
     <div className={cn("", className)}>
       <div className="space-y-4">
         <div className="border-b px-3 py-4">
-          <AgencySwitcher className="w-full" />
+          <AgencySwitcher userSession={userSession} className="w-full"  />
         </div>
         <div className="border-b px-3 py-2">
           <p className="mb-2 text-xs font-semibold text-muted-foreground">
@@ -133,25 +122,6 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
             <p className="mr-2">{"Add a Property"}</p>
           </Button>
         </div>
-        {/* <div className="px-3 py-2">
-          <p className="mb-2 text-xs font-semibold text-muted-foreground uppercase">
-            {"Agents Centre"}
-          </p>
-          <div className="space-y-1">
-            {AgencyLinks.map((link) => (
-              <Button key={link.name} variant="ghost" className="w-full">
-                <Link
-                  href={link.href}
-                  passHref
-                  className="flex w-full items-center"
-                >
-                  {link.icon}
-                  {link.name}
-                </Link>
-              </Button>
-            ))}
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -7,7 +7,17 @@ import { Separator } from "@/components/ui/separator";
 import { CommandMenu } from "./components/CommandMenu";
 import PurposeSelector from "./components/PurposeSelector";
 import { Sidebar } from "./components/Sidebar";
-export default function DashboardLayout({ children }: PropsWithChildren) {
+import { getServerAuthSession } from "@/server/auth";
+import { redirect } from "next/navigation";
+
+
+export default async function DashboardLayout({ children }: PropsWithChildren) {
+  const session = await getServerAuthSession();
+  if (!session) {
+    return (
+      redirect('/login')
+    );
+  }
   return (
     <>
       <header className="flex items-center border-b px-8">
@@ -35,11 +45,11 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
         </div>
       </header>
       <main className="flex">
-        <aside className="w-64 overflow-auto max-h-[calc(100vh-81px)] border-r">
-          <Sidebar />
+        <aside className="max-h-[calc(100vh-81px)] w-64 overflow-auto border-r">
+          <Sidebar userSession={session} />
         </aside>
         <div>{children}</div>
       </main>
-    </>
+    </>    
   );
 }
