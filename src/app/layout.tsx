@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import Script from "next/script";
+import { GLOBAL_CONFIG } from "@/config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +30,9 @@ export default function RootLayout({
           {children}
         </TRPCReactProvider>
       </body>
+      <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${GLOBAL_CONFIG.googlePlacesAPI.key}&libraries=places&callback=${GLOBAL_CONFIG.googlePlacesAPI.callbackName}`}
+      />
     </html>
   );
 }
