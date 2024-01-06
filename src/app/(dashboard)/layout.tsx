@@ -48,7 +48,7 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
         <aside className="max-h-[calc(100vh-81px)] w-64 overflow-auto border-r">
           <Sidebar userSession={session} />
         </aside>
-        <div>{children}</div>
+        <div className="flex-1">{children}</div>
       </main>
     </>    
   );
