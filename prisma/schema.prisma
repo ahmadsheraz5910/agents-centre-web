@@ -35,13 +35,14 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(auto()) @map("_id") @db.ObjectId
+    id            String       @id @default(auto()) @map("_id") @db.ObjectId
     name          String?
-    email         String?   @unique
+    email         String?      @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
+    properties    Properties[]
 }
 
 model VerificationToken {
@@ -51,4 +52,57 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+type Geometry {
+    lat Float
+    lng Float
+}
+
+type GoogleLocation {
+    placeId     String
+    description String
+    geometry    Geometry
+}
+
+type Address {
+    location GoogleLocation
+    city  String
+    state String
+}
+
+enum PROPERTY_PURPOSE {
+    rent
+    buy
+}
+
+enum PROPERTY_TYPE {
+    apartment
+    house
+    land
+    office
+    shop
+    warehouse
+}
+
+enum PROPERTY_STATUS {
+    draft
+    published
+}
+
+model Properties {
+    id          String           @id @default(auto()) @map("_id") @db.ObjectId
+    title       String
+    description String
+    status      PROPERTY_STATUS 
+    price       String
+    purpose     PROPERTY_PURPOSE
+    type        PROPERTY_TYPE
+    address     Address
+    thumbnail   String
+    createdAt   DateTime         @default(now())
+    updatedAt   DateTime         @updatedAt
+    deletedAt   DateTime?
+    postedById  String           @db.ObjectId
+    postedBy    User             @relation(fields: [postedById], references: [id], onDelete: Cascade)
 }

@@ -13,20 +13,20 @@ import {
   CommandGroup,
   CommandItem,
   CommandList,
-} from "@/components/ui/command";
+} from "@/core/components/ui/command";
 import {
   Popover,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/core/components/ui/popover";
 
-import { cn } from "@/lib/ui-utils";
+import { cn } from "@/core/helpers";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import usePlacesAutocomplete from "use-places-autocomplete";
-import { GLOBAL_CONFIG } from "@/config";
+import { GLOBAL_CONFIG } from "@/core/config";
 import useLocationsState from "./useLocationsState";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/core/components/ui/skeleton";
+import { Badge } from "@/core/components/ui/badge";
+import { Button } from "@/core/components/ui/button";
 
 export function CommandMenu({ className }: { className?: string }) {
   const {

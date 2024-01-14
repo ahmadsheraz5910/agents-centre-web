@@ -1,17 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { DoubleEdgeSlider } from "@/components/ui/doubleEdgeSlider";
+import { Button } from "@/core/components/ui/button";
+import { DoubleEdgeSlider } from "@/core/components/ui/double-edge-slider";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/core/components/ui/popover";
 import React from "react";
 import maxArray from "lodash.max";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/core/components/ui/input";
+import { Separator } from "@/core/components/ui/separator";
+import { Label } from "@/core/components/ui/label";
 import { ChevronDownIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/core/components/ui/badge";
 
 
 const PRICE_STEP = 25000;

@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/ui-utils";
+import { Button } from "@/core/components/ui/button";
+import { Separator } from "@/core/components/ui/separator";
+import { cn } from "@/core/helpers";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React from "react";

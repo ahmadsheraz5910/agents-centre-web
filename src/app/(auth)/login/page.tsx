@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import { LoginForm } from "./login-form";
-import BrandLogo from "@/components/BrandLogo";
+import BrandLogo from "@/core/components/BrandLogo";
 import { redirect } from "next/navigation";
 import { getServerAuthSession } from "@/server/auth";
 

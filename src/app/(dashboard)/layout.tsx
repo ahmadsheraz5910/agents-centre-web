@@ -1,9 +1,9 @@
-import BrandLogo from "@/components/BrandLogo";
-import { Button } from "@/components/ui/button";
+import BrandLogo from "@/core/components/BrandLogo";
+import { Button } from "@/core/components/ui/button";
 import { type PropsWithChildren } from "react";
 import { BellIcon, MailIcon } from "lucide-react";
 import { ProfileDropdown } from "./components/profile-dropdown";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/core/components/ui/separator";
 import { CommandMenu } from "./components/CommandMenu";
 import PurposeSelector from "./components/PurposeSelector";
 import { Sidebar } from "./components/Sidebar";
@@ -44,11 +44,11 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
           <ProfileDropdown />
         </div>
       </header>
-      <main className="flex">
-        <aside className="max-h-[calc(100vh-81px)] w-64 overflow-auto border-r">
+      <main className="flex max-h-[calc(100vh-81px)]">
+        <aside className="w-64 overflow-auto border-r">
           <Sidebar userSession={session} />
         </aside>
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 overflow-auto">{children}</div>
       </main>
     </>    
   );
