@@ -1,10 +1,10 @@
 "use client";
 
-import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/ui-utils";
+import { Icons } from "@/core/components/icons";
+import { Button } from "@/core/components/ui/button";
+import { Input } from "@/core/components/ui/input";
+import { Label } from "@/core/components/ui/label";
+import { cn } from "@/core/helpers";
 import * as React from "react";
 import GoogleSignIn from "./GoogleSignIn";
 

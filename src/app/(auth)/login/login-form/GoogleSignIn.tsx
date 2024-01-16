@@ -1,5 +1,5 @@
-import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import { Icons } from "@/core/components/icons";
+import { Button } from "@/core/components/ui/button";
 import React from "react";
 import {signIn} from 'next-auth/react'
 

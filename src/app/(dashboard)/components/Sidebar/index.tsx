@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/ui-utils";
+import { Button } from "@/core/components/ui/button";
+import { cn } from "@/core/helpers";
 import {
   Building2Icon,
   HeartIcon,

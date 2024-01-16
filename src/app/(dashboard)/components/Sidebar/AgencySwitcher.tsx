@@ -1,6 +1,6 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/core/components/ui/avatar";
+import { Button } from "@/core/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -8,13 +8,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command";
+} from "@/core/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/ui-utils";
+} from "@/core/components/ui/popover";
+import { cn } from "@/core/helpers";
 import { ArrowUpDownIcon, CheckIcon } from "lucide-react";
 import { type Session } from "next-auth";
 import * as React from "react";
