@@ -45,7 +45,7 @@ const LocationCardField = () => {
           <p className="text-base font-semibold">{"Location"}</p>
           <p className="text-sm text-muted-foreground">
             {
-              "Add images, pdfs or videos to show property details and features."
+              "Help others find your property easily by giving the most accurate location details."
             }
           </p>
         </CardHeader>
